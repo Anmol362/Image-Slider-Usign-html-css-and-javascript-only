@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+
+    height: 100vh;
+    position: relative;
+    font-family: 'Playfair Display', serif;
+}
+
+.inner_main {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: url('./1003220.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.carousel {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 0%;
+    height: 0%;
+    transition: all 0.5s ease-in-out;
+
+}
+
+.carousel.active {
+    width: 80%;
+    height: 100%;
+    transition: all 0.5s ease-in-out;
+}
+
+.card {
+    display: flex;
+    width: 95%;
+    height: 60%;
+    box-shadow: rgba(80, 83, 83, 0.5) 0 0 0px 0px;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+}
+
+.carousel.active .card {
+    box-shadow: rgba(80, 83, 83, 0.5) 0 0 20px 10px;
+    transition: all 0.5s ease-in-out;
+}
+
+.superhero_name {
+    width: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}
+
+.superhero_name>h1 {
+    position: relative;
+    color: #fff;
+    width: 0%;
+    overflow: hidden;
+    text-align: center;
+    transition: all 1s ease;
+}
+
+.carousel.active .card .superhero_name>h1 {
+    width: 100%;
+    transition: all 1s ease;
+}
+
+.superhero_name::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #7e7c7c;
+    opacity: 0.5;
+}
+
+.superhero_img {
+    width: 50%;
+    height: 100%;
+
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.change-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 30px;
+    font-weight: 600;
+    outline: none;
+    border: none;
+    color: #fff;
+    background: transparent;
+    position: absolute;
+    cursor: pointer;
+    box-shadow: rgba(78, 78, 78, .5) 0 0 20px 10px inset;
+}
+
+.next-btn {
+    right: 5%;
+    top: 45%;
+}
+
+.previous-btn {
+    left: 5%;
+    top: 45%;
+    z-index: 10;
+}
+.change-btn:hover
+{
+    color: #000;
+    background: #efefef;
+    transition: all 0.7s ease;
+}
+@media (max-width:768px) {
+
+    .card {
+        flex-direction: column;
+        position: relative;
+    }
+    .superhero_name
+    {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        transition: all 0.5s ease-in-out;
+    }
+    .superhero_name::before
+    {
+        background: #111111;
+    }
+    .superhero_img
+    {
+        width: 100%;
+        height: 100%;
+        transition: all 0.5s ease-in-out;
+    }
+
+}
+
+@media (max-width:500px) {
+
+    .carousel.active
+    {
+        width: 100%;
+        transition: all 0.5s ease-in-out;
+    }
+    .superhero_name
+    {
+        font-size: 21px;
+        transition: all 0.5s ease-in-out;
+    }
+
+}

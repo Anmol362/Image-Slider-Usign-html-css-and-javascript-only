@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="inner_main">
+            <button class="change-btn previous-btn" onclick="previous(1)"><</button>
+            <div class="carousel active">
+                <div class="card">
+                    <div class="superhero_name">
+                        <h1>Dr Strange</h1>
+                    </div>
+                    <div class="superhero_img">
+                        <img src="./doctor-strange.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="carousel ">
+                <div class="card">
+                    <div class="superhero_name">
+                        <h1>Iron-man</h1>
+                    </div>
+                    <div class="superhero_img">
+                        <img src="./iron-man.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="carousel ">
+                <div class="card">
+                    <div class="superhero_name">
+                        <h1>Captain America</h1>
+                    </div>
+                    <div class="superhero_img">
+                        <img src="./captain-america.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="carousel">
+                <div class="card">
+                    <div class="superhero_name">
+                        <h1>Thor</h1>
+                    </div>
+                    <div class="superhero_img">
+                        <img src="./thor.jpg">
+                    </div>
+                </div>
+            </div>
+            <button class="change-btn next-btn" onclick="next(1)">></button>
+        </div>
+        
+    </div>
+
+</body>
+<script>
+    var count=1;
+    changeSlide(count);
+    function previous(n)
+    {
+        changeSlide(count-=n);
+    }
+    function next(n)
+    {
+        changeSlide(count+=n);
+    }
+    function changeSlide(n)
+    {
+        let i;
+        let slides=document.querySelectorAll('.carousel');
+        for(i=0;i<slides.length;i++)
+        {
+            slides[i].classList.remove('active');
+        }
+        if(n>slides.length)
+        {
+            n=1;
+            count=1;
+        }
+        if(n<=0)
+        {
+            n=slides.length;
+            count=slides.length;
+        }
+        slides[n-1].classList.toggle('active');
+    }
+</script>
+</html>
